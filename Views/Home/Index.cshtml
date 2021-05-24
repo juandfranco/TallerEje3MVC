@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TallerEje3MVC.Models.CandidatosModel>
+@{
+    ViewData["Title"] = "Votaciones 2021";
+}
+
+<div class="container-fluid">
+    <br>
+    <form class="align-items-center" method="post" asp-controller="Home" asp-action="Votar">
+        <div class="mb-3">
+            <label for="identificacion" class="form-label">Identificación (CC,CE)</label>
+            <input type="number" class="form-control" id="identificacion" name="identificacion" autocomplete="off">
+        </div>
+
+        <div class="row">
+
+            @foreach (var candidato in Model)
+            {
+                <div class="col-md-3">
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" class="custom-control-input" id="@candidato.id" value="@candidato.id" name="id_candidato">
+                        <label class="custom-control-label" for="@candidato.id">
+                            <img src="~/images/@candidato.imagen_nombre" alt="#" class="img-fluid">
+
+                        </label>
+                        <h4>@candidato.nombre</h4>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <br>
+        <br>
+        <button type="submit" class="btn btn-lg btn-primary position-absolute start-50 translate-middle">Votar</button>
+    </form>
+
+    @ViewBag.Name
+</div>

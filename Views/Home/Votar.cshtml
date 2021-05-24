@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Votar";
+}
+
+
+<div class="row">
+    @if (ViewBag.VotoAlmacenado != null)
+    {
+        @if (ViewBag.VotoAlmacenado)
+        {
+
+            <div class="alert alert-success" role="alert">
+                Su voto ha sido registrado!
+            </div>
+        }
+        else
+        {
+
+            <div class="alert alert-danger" role="alert">
+                Se ha producido un error al registrar su voto, si ya lo realizó no puede votar nuevamente!
+            </div>
+        }
+    }
+    <a href="/" class="badge badge-info">Regresar</a>
+</div>
+
+
+
